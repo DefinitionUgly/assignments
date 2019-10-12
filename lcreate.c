@@ -2,7 +2,6 @@
 #include <stdlib.h>
 
 struct node {
-    char *front;
     char data;
     char *rear;
 };
@@ -12,43 +11,28 @@ struct node q;
 struct node linked[5];
 
 int main()
-{
-
-
-    char search,value;
-
+{    
+    
+    char search;
     char data[5];
     int i;
     for(i=0;i<5;i++){
         printf("Enter Character: \n");
         scanf("%c%*c",&data[i]);
-
         q.data = data[i];
-
         if(i == 0){
-
-            q.front = NULL;
             q.rear = NULL;
-
         }else{
-
-        q.front = p.rear;
-                
-        
+       
         }
-        //printf("%p",&data[i]);
         ///P = Q
-        p.front = q.front;
         p.data = q.data;
         if(i == 4){
             p.rear = NULL;
         }else
         {
            p.rear = &data[i];///Same as &q.data;
- 
         }
-        
-        
        //printf("%c\n",data[i]);
         //printf("\n%p %c %p\n",p.front,p.data,p.rear);
         linked[i] = p;
@@ -59,34 +43,9 @@ int main()
     //scanf("%c%*c",&search);
 
     for(i=0;i<5;i++){
-        printf("\n%p %c %p\n",linked[i].front,linked[i].data,linked[i].rear);
+        printf("\n %c %p\n",linked[i].data,linked[i].rear);
         
     }
-
-    printf("Enter new value \n");
-    scanf("%c",&value);
-    printf("Enter value to search for\n");
-    scanf("%c",&search);
-    
-    for(i= 0;i<5;i++){
-        if(linked[i].data == search){
-            printf("Found it");
-            //linked[i].front
-            linked[i].data = value;
-        }
-
-    }
-
-
-    for(i=0;i<6;i++){
-        printf("\n%p %c %p\n",linked[i].front,linked[i].data,linked[i].rear);
-        
-    }
-    
-    
-
-
-
 
     return 0;
 }
